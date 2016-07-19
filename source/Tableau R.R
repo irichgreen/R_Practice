@@ -1,0 +1,5 @@
+install.packages("Rserve")
+setwd("/Applications/R.app")
+library(Rserve)
+Rserve()
+Rserve(args='--vanilla')

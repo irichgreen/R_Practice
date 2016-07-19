@@ -1,0 +1,47 @@
+```{r echo = FALSE}
+# knitr::opts_chunk$set(comment=NA, cache=FALSE, message=FALSE, warning=FALSE)
+# suppressMessages(library(radiant))
+# uncomment the lines above to 'knit' the Rmd file in Rstudio
+# you will also need to load the data using load()
+```
+
+## Sample report
+
+This is an example of the type of report you can write in Radiant.
+
+* You can create
+* bullet lists
+
+1. And numbered
+2. lists
+
+### Math
+
+You can even include math if you want: $f(alpha, eta) propto x^{alpha-1}(1-x)^{eta-1}$.
+
+To show the output press the `Update` button.
+
+### Documenting analysis results in Radiant
+
+When you click the book icon on a page the browser will bring you
+to this report page. By default Radiant will paste the code generated
+for the analysis you just completed at the bottom of the report.
+However, you can turn off that feature by clicking the `Manual paste`
+checkbox. The code will then be put in the clipboard when you click a
+book icon and you can paste it where you want in the editor window.
+
+Below is some code created in Radiant will generate regression output
+for the `diamonds` data. There are plots of histograms and a scatterplot
+/ heatmap of the price of diamonds versus carats. The colors in the plot
+reflect the clarity of the diamond.
+
+```{r fig.width=7, fig.height=4}
+result <- regression(dataset = 'diamonds', reg_dep_var = 'price', reg_indep_var = 'carat')
+summary(result)
+plot(result, reg_plots = 'hist')
+```
+
+```{r fig.width=7, fig.height=7}
+visualize(dataset = 'diamonds', viz_xvar = 'carat', viz_yvar = 'price', viz_type = 'scatter', viz_color = 'clarity')
+```
+

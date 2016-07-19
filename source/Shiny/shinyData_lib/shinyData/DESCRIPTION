@@ -1,0 +1,33 @@
+Package: shinyData
+Type: Package
+Title: A GUI application for interactive data analysis, visualization
+        and presentation
+Version: 0.1.1
+Authors@R: "Yindeng Jiang <jiangyindeng@gmail.com> [aut, cre]"
+Description: 
+  shinyData is an easy to use tool for interactive data analysis, visualization and presentation.
+  It leverages the power of R and its vast collection of packages to allow users to efficiently perform common
+  data tasks, such as slicing and dicing, aggregation, pattern recognition, visualization and more.
+  Almost no knowledge of R programming is required to use shinyData.
+Depends: R (>= 3.1.2)
+Imports: shiny (>= 0.11.1), ggplot2 (>= 1.0.0), Hmisc (>= 3.14-6), uuid
+        (>= 0.1-1), tables (>= 0.7.79), png (>= 0.1-7), data.table (>=
+        1.9.4), Cairo (>= 1.5-6), knitr (>= 1.9), rmarkdown (>= 0.4.2)
+Suggests: extrafont (>= 0.17)
+License: MIT + file LICENSE
+LazyData: true
+URL: https://github.com/yindeng/shinyData
+BugReports: https://github.com/yindeng/shinyData/issues
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: shinyData
+RemoteUsername: yindeng
+RemoteRef: v0.1.1
+RemoteSha: 9c6a452b58f4a346a237cee323c2f7593d97e1ce
+GithubRepo: shinyData
+GithubUsername: yindeng
+GithubRef: v0.1.1
+GithubSHA1: 9c6a452b58f4a346a237cee323c2f7593d97e1ce
+Author: "Yindeng Jiang" [aut, cre]
+Maintainer: "Yindeng Jiang" <jiangyindeng@gmail.com>
+Built: R 3.2.0; ; 2015-04-21 06:52:34 UTC; windows

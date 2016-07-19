@@ -1,0 +1,31 @@
+---
+title: "Introduction of package moonBook2"
+output: html_notebook
+---
+
+## Package installation
+
+Package moonBook is avaiable on CRAN and github. Package moonBook2 is available only on github. Please install moonBook2 package using the following R code.
+
+```{r}
+# install.packages("devtools")
+devtools::install_github("cardiomoon/moonBook")
+devtools::install_github("cardiomoon/moonBook2")
+```
+
+## ggSpine() : Interactive mosaic plot and spinogram
+
+This function is a extension of graphics::spineplot() function. This function draws a proportional stacked barplot with variable width.
+
+```{r}
+# install.packages("devtools")
+require(moonBook)
+require(ggplot2)
+require(ggiraph)
+require(plyr)
+require(reshape2)
+require(scales)
+require(moonBook2)
+
+ggSpine(data=acs,"Dx","smoking",interactive=TRUE)
+```

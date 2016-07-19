@@ -1,0 +1,26 @@
+Package: shinyAce
+Type: Package
+Title: Ace editor bindings for Shiny
+Version: 0.2.1
+Date: 2015-01-26
+Author: Trestle Technology, LLC.
+Maintainer: Jeff Allen <jeff@trestletech.com>
+Description: Ace editor bindings to enable a rich text editing environment
+    within Shiny.
+License: MIT
+Depends: R (>= 2.15.0)
+Imports: shiny (>= 0.7.0)
+Suggests: testthat, dplyr (>= 0.3.0)
+BugReports: https://github.com/trestletech/shinyAce/issues
+Roxygen: list(wrap = TRUE)
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: shinyAce
+RemoteUsername: trestletech
+RemoteRef: a2268d545e0ea30eb44c9dca517aec1165b06a51
+RemoteSha: a2268d545e0ea30eb44c9dca517aec1165b06a51
+GithubRepo: shinyAce
+GithubUsername: trestletech
+GithubRef: a2268d545e0ea30eb44c9dca517aec1165b06a51
+GithubSHA1: a2268d545e0ea30eb44c9dca517aec1165b06a51
+Built: R 3.2.0; ; 2015-04-21 06:51:28 UTC; windows

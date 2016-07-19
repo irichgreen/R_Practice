@@ -1,0 +1,110 @@
+library(ggplot2)
+
+df=structure(list(streaksPerCentury = c(8095.68, 4022.65, 1997.74, 
+                                        989.41, 489.31, 243.43, 120.66, 60.09, 29.94, 14.86, 7.57, 3.88, 
+                                        2.06, 1.19, 0.65, 0.3, 0.15, 0.07, 0.03, 0.01, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9732.78, 5809.84, 3463.07, 2064.78, 
+                                        1230.27, 732.7, 435.95, 259.14, 154.46, 92.45, 54.93, 32.44, 
+                                        19.18, 11.31, 6.63, 3.92, 2.22, 1.23, 0.75, 0.42, 0.24, 0.14, 
+                                        0.07, 0.03, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), streakLength = c(1L, 
+                                                                                                          2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L, 11L, 12L, 13L, 14L, 15L, 
+                                                                                                          16L, 17L, 18L, 19L, 20L, 21L, 22L, 23L, 24L, 25L, 26L, 27L, 28L, 
+                                                                                                          29L, 30L, 31L, 32L, 33L, 34L, 35L, 36L, 37L, 38L, 39L, 40L, 41L, 
+                                                                                                          42L, 43L, 44L, 45L, 46L, 47L, 48L, 49L, 50L, 51L, 52L, 53L, 54L, 
+                                                                                                          55L, 56L, 57L, 58L, 59L, 60L, 61L, 62L, 63L, 64L, 65L, 66L, 67L, 
+                                                                                                          68L, 69L, 70L, 71L, 72L, 73L, 74L, 75L, 76L, 77L, 78L, 79L, 80L, 
+                                                                                                          81L, 82L, 83L, 84L, 85L, 86L, 87L, 88L, 89L, 90L, 91L, 92L, 93L, 
+                                                                                                          94L, 95L, 96L, 97L, 98L, 99L, 100L, 101L, 102L, 103L, 104L, 105L, 
+                                                                                                          106L, 107L, 108L, 109L, 110L, 111L, 112L, 113L, 114L, 115L, 116L, 
+                                                                                                          117L, 118L, 119L, 120L, 121L, 122L, 123L, 124L, 125L, 126L, 127L, 
+                                                                                                          128L, 129L, 130L, 131L, 132L, 133L, 134L, 135L, 136L, 137L, 138L, 
+                                                                                                          139L, 140L, 141L, 142L, 143L, 144L, 145L, 146L, 147L, 148L, 149L, 
+                                                                                                          150L, 151L, 152L, 153L, 154L, 155L, 156L, 157L, 158L, 159L, 160L, 
+                                                                                                          161L, 162L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L, 11L, 12L, 
+                                                                                                          13L, 14L, 15L, 16L, 17L, 18L, 19L, 20L, 21L, 22L, 23L, 24L, 25L, 
+                                                                                                          26L, 27L, 28L, 29L, 30L, 31L, 32L, 33L, 34L, 35L, 36L, 37L, 38L, 
+                                                                                                          39L, 40L, 41L, 42L, 43L, 44L, 45L, 46L, 47L, 48L, 49L, 50L, 51L, 
+                                                                                                          52L, 53L, 54L, 55L, 56L, 57L, 58L, 59L, 60L, 61L, 62L, 63L, 64L, 
+                                                                                                          65L, 66L, 67L, 68L, 69L, 70L, 71L, 72L, 73L, 74L, 75L, 76L, 77L, 
+                                                                                                          78L, 79L, 80L, 81L, 82L, 83L, 84L, 85L, 86L, 87L, 88L, 89L, 90L, 
+                                                                                                          91L, 92L, 93L, 94L, 95L, 96L, 97L, 98L, 99L, 100L, 101L, 102L, 
+                                                                                                          103L, 104L, 105L, 106L, 107L, 108L, 109L, 110L, 111L, 112L, 113L, 
+                                                                                                          114L, 115L, 116L, 117L, 118L, 119L, 120L, 121L, 122L, 123L, 124L, 
+                                                                                                          125L, 126L, 127L, 128L, 129L, 130L, 131L, 132L, 133L, 134L, 135L, 
+                                                                                                          136L, 137L, 138L, 139L, 140L, 141L, 142L, 143L, 144L, 145L, 146L, 
+                                                                                                          147L, 148L, 149L, 150L, 151L, 152L, 153L, 154L, 155L, 156L, 157L, 
+                                                                                                          158L, 159L, 160L, 161L, 162L), Win_Percentage = structure(c(1L, 
+                                                                                                                                                                      1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 
+                                                                                                                                                                      1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 
+                                                                                                                                                                      1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 
+                                                                                                                                                                      1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 
+                                                                                                                                                                      1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 
+                                                                                                                                                                      1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 
+                                                                                                                                                                      1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 
+                                                                                                                                                                      1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 
+                                                                                                                                                                      1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 
+                                                                                                                                                                      1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 
+                                                                                                                                                                      1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 
+                                                                                                                                                                      2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 
+                                                                                                                                                                      2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 
+                                                                                                                                                                      2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 
+                                                                                                                                                                      2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 
+                                                                                                                                                                      2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 
+                                                                                                                                                                      2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 
+                                                                                                                                                                      2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 
+                                                                                                                                                                      2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 
+                                                                                                                                                                      2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 
+                                                                                                                                                                      2L, 2L, 2L), .Label = c("50", "60"), class = "factor")), .Names = c("streaksPerCentury", 
+                                                                                                                                                                                                                                          "streakLength", "Win_Percentage"), row.names = c(NA, -324L), class = "data.frame")
+
+mf=structure(list(streakLength = c(3L, 4L, 4L, 5L, 5L, 6L, 6L, 7L, 
+                                   7L, 8L, 8L, 9L, 9L, 10L, 10L, 11L, 11L, 12L, 12L, 13L, 13L, 14L, 
+                                   14L, 15L, 15L, 16L, 16L, 17L, 17L, 18L, 18L, 19L, 19L, 20L, 20L, 
+                                   21L, 22L, 23L, 24L), Win_Percentage = structure(c(1L, 1L, 2L, 
+                                                                                     1L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 
+                                                                                     1L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 
+                                                                                     2L, 2L, 2L, 2L), .Label = c("50", "60"), class = "factor"), prob = c(0.0029, 
+                                                                                                                                                          0.0679, 0.0025, 0.2006, 0.0291, 0.2643, 0.108, 0.201, 0.1869, 
+                                                                                                                                                          0.1231, 0.1999, 0.0694, 0.1556, 0.0343, 0.1147, 0.0183, 0.0786, 
+                                                                                                                                                          0.0095, 0.049, 0.0033, 0.03, 0.0019, 0.0188, 0.002, 0.0099, 7e-04, 
+                                                                                                                                                          0.0071, 4e-04, 0.0051, 2e-04, 0.0015, 1e-04, 0.0015, 1e-04, 8e-04, 
+                                                                                                                                                          3e-04, 3e-04, 1e-04, 3e-04)), .Names = c("streakLength", "Win_Percentage", 
+                                                                                                                                                                                                   "prob"), row.names = c(NA, -39L), class = "data.frame")
+
+p=ggplot(subset(df,streakLength>9 & streakLength<22),
+         aes(x=streakLength,
+             y=streaksPerCentury,
+             group=Win_Percentage,
+             color=Win_Percentage))
+p=p+geom_point(size=3)
+p=p+scale_y_continuous(breaks=seq(0,100,10))
+p=p+scale_x_continuous(breaks=seq(10,21,2))
+p=p+labs(x="Streak Length",
+         y="How Many Times Per Century A Streak Of That Length Occurs\nFor A Given Team")
+p=p+theme(legend.position="bottom")
+p
+
+p=ggplot(subset(mf,streakLength<19),
+         aes(x=streakLength,
+             y=prob,
+             fill=Win_Percentage,
+             group=Win_Percentage))
+p=p+geom_bar(stat="identity",alpha=.5,position="dodge")
+p=p+scale_y_continuous(breaks=seq(0,.3,.05))
+p=p+scale_x_continuous(breaks=seq(3,19,1))
+p=p+labs(x="Streak Length",
+         y="Probability That A Streak Of That Length\nWill Be The Season's Longest (For A Given Team)")
+p=p+theme(legend.position="bottom")
+p

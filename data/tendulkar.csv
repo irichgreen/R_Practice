@@ -1,0 +1,9 @@
+set.seed(1)
+n=500
+library(clusterGeneration)
+library(mnormt)
+S=genPositiveDefMat("eigen",dim=15)
+S=genPositiveDefMat("unifcorrmat",dim=15)
+X=rmnorm(n,varcov=S$Sigma)
+library(corrplot)
+corrplot(cor(X), order = "hclust")
