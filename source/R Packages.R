@@ -247,3 +247,79 @@ install.packages("archivist")
 # GREA: The RStudio Add-In to read ALL the data into R!
 devtools::install_github("Stan125/GREA")
 
+
+devtools::install_github("DataWookie/lifespan")
+
+
+pkgs =  c("gtools",
+          "gdata",
+          "whisker",
+          "xtable",
+          "digest",
+          "doParallel",
+          "gridBase",
+          "pkgmaker",
+          "rngtools",
+          "registry",
+          "stringi",
+          "magrittr",
+          "stringr",
+          "irlba",
+          "scatterplot3d",
+          "lmtest",
+          "vcd",
+          "TSP",
+          "qap",
+          "gclus",
+          "dendextend",
+          "bitops",
+          "caTools",
+          "gplots",
+          "seriation",
+          "quadprog",
+          "zoo",
+          "reshape2",
+          "gtable",
+          "dichromat",
+          "plyr",
+          "munsell",
+          "labeling",
+          "scales",
+          "ggplot2",
+          "RColorBrewer",
+          "NMF",
+          "igraph",
+          "arulesViz",
+          "arules",
+          "tseries",
+          "fracdiff",
+          "RcppArmadillo",
+          "nnet",
+          "colorspace",
+          "timeDate",
+          "forecast",
+          "sandwich"
+)
+
+install.packages(pkgs, dependencies=TRUE, repos="http://cran.fhcrc.org", type="source")
+
+install.packages("http://cran.fhcrc.org/src/contrib/Archive/RcppArmadillo/RcppArmadillo_0.6.200.2.0.tar.gz",repos=NULL, type="source")
+
+install.packages("forecast", repos="http://cran.fhcrc.org")
+
+
+devtools::install_github("Vessy/Rmaze")
+library("Rmaze")
+
+
+# rj and rj.gd are R packages used to form a bridge between R and Java. You need these to run the R console from Eclipse. These packages are not hosted on Cran, and you need to download them from www.walware.de.
+
+install.packages(c("rj", "rj.gd"), repos="http://download.walware.de/rj-2.0")
+
+devtools::install_github("rstudio/sparklyr")
+
+# Themes for R Markdown package
+install.packages("prettydoc")
+
+devtools::install_github("mangothecat/pkgsnap")
+
