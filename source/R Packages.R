@@ -131,7 +131,8 @@ install.packages("mycor")
 # Useful new R packages for data visualization and analysis
 library(devtools)
 install_github("rstudio/leaflet")
-install_github("ramnathv/rCharts")
+install_github('ramnathv/rCharts', force = TRUE)
+
 install_github("ramnathv/slidify")
 install_github("ramnathv/slidifyLibraries")
 install.packages("RTextTools", type="source")
@@ -148,7 +149,8 @@ install_github("ramnathv/htmlwidgets")
 install_github("rich-iannone/DiagrammeR")
 
 # Radiant : A shiny interface for R package
-install.packages("radiant", repos = "http://vnijs.github.io/radiant_miniCRAN/")
+install.packages("radiant")
+radiant::radiant()
 
 # Geomorph beta package
 install_github("EmSherratt/geomorph",ref = "Develop")
@@ -344,9 +346,39 @@ install.packages("magick")
 devtools::install_github("datacamp/Rdocumentation")
 library(Rdocumentation)
 
-# editR is a basic Rmarkdown editor with instant previewing of your document. 
+?lubridate# editR is a basic Rmarkdown editor with instant previewing of your document. 
 if (!require("devtools")) install.packages("devtools")
 devtools::install_github("trestletech/shinyAce")
 devtools::install_github("swarm-lab/editR")
 
+# With just a few snippets of code, automate your Web scraping and app testing 
+install.packages("RSelenium")
+
+install.packages("OutbreakTools")
+
+# OpenML package
+devtools::install_github("openml/r")
+install.packages("farff")
+install.packages("mlr")
+
+devtools::install_github("ndphillips/yarrr", build_vignettes = TRUE) # Install yarrr
+library("yarrr") # Load the yarrr package
+yarrr::pirateplot(formula = weight ~ Time, data = ChickWeight)
+
+# tidyverse 1.0.0
+# The tidyverse is a set of packages that work in harmony because they share common data representations anrd API design. The tidyverse package is designed to make it easy to install and load core packages from the tidyverse in a single command.
+install.packages("tidyverse")
+
+# 엑셀과 R을 연동하는 패키지(excel.link)
+# https://github.com/gdemin/excel.link
+# 패키지의 기능은 크게 3가지 입니다.
+# 1) EXCEL 열기, 닫기, 시트 추가, 시트 활성화 등 엑셀 조작
+# 2) R -> EXCEL로 문자, 숫자, 그래프 넘기기
+# 3) EXCEL -> R로 문자, 숫자 넘기기
+library(devtools)
+install_github('gdemin/excel.link', local = F)
+
+
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(knitr, captioner, bundesligR, stringr)
 

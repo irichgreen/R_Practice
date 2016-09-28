@@ -55,7 +55,6 @@ fit <- partitions$training %>%
 
 summary(fit)
 
-install.packages("rsparkling")
 library(sparklyr)
 library(rsparkling)
 library(h2o)
@@ -72,3 +71,12 @@ partitions <- mtcars_tbl %>%
     filter(hp >= 100) %>%
     mutate(cyl8 = cyl == 8) %>%
     sdf_partition(training = 0.5, test = 0.5, seed = 1099)
+
+training <- as_h2o_frame(partitions$training)
+test <- as_h2o_frame(partitions$test)
+
+# fit a linear model to the training dataset
+fit <- h2o.glm(x = c("wt", "cyl"), 
+               y = "mpg", 
+               training_frame = training,
+               lambda_search = TRUE)
