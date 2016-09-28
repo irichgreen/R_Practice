@@ -17,14 +17,17 @@ library(googleVis)
 data(Fruits)
 M1 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 plot(M1)
+
 # googleVis
 data(Exports)
 *#Global,
 G1 <- gvisGeoChart(Exports, locationvar = 'Country', colorvar='Profit')
 plot(G1)
+
 *#Plot, only Europe
 G2 <- gvisGeoChart(Exports, "Country", "Profit", options=list(region="150"))
 plot(G2)
+
 *#Example, showing US data by state
 states <- data.frame(state.name, state.x77)
 G3 <- gvisGeoChart(states, "state.name", "Illiteracy", options=list(region="US", displayMode="regions", resolution = "provinces", width=600, height=400))
@@ -35,12 +38,14 @@ G5 <- gvisGeoChart(Andrew, "LatLong", colorvar = 'Speed_kt', options=list(region
 plot(G5)
 G6 <- gvisGeoChart(Andrew, "LatLong", sizevar = 'Speed_kt', colorvar = "Pressure_mb", options=list(region="US"))
 plot(G6)
+
 require(stats)
 data(quakes)
 head(quakes)
 quakes$latlong <- paste(quakes$lat, quakes$long, sep=":")
 G7 <- gvisGeoChart(quakes, "latlong", "depth", "mag", options = list(displayMode = "Markers", region="009", colorAxis ="{colors : ['red', 'grey']}", backgroundColor="lightblue"))
 plot(G7)
+
 install.packages("XML")
 library(XML)
 url <- "http://en.wikipedia.org/…/List_of_countries_by_credit_rating"
@@ -56,3 +61,22 @@ plot(G8)
 
 
 
+Anno <- gvisAnnotationChart(Stock, datevar="Date", numvar="Value", idvar="Device", titlevar="Title", annotationvar="Annotation", options=list(width=600, height=350, fill=10, displayExactValues=TRUE, colors="['#0000ff','#00ff00']"))
+plot(Anno)
+
+
+datSK <- data.frame(From=c(rep("A",3), rep("B", 3)),
+                    To=c(rep(c("X", "Y", "Z"),2)),
+                    Weight=c(5,7,6,2,9,4))
+
+Sankey <- gvisSankey(datSK, from="From", to="To", weight="Weight",
+                     options=list(
+                         sankey="{link: {color: { fill: '#d799ae' } },
+                         node: { color: { fill: '#a61d4c' },
+                         label: { color: '#871b47' } }}"))
+plot(Sankey)
+
+
+# Calendar Chart
+Cal <- gvisCalendar(Cairo, datevar="Date", numvar="Temp", options=list(title="Daily temperature in Cairo", height=320, calendar="{yearLabel: { fontName: 'Times-Roman', fontSize: 32, color: '#1A8763', bold: true}, cellSize: 10, cellColor: { stroke: 'red', strokeOpacity: 0.2 }, focusedCellColor: {stroke:'red'}}"))
+plot(Cal)

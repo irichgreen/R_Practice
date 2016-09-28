@@ -323,3 +323,30 @@ install.packages("prettydoc")
 
 devtools::install_github("mangothecat/pkgsnap")
 
+# forcats provides two main types of tools to change either the values or the order of the levels.
+install.packages("forcats")
+
+# Updated R Markdown thesis template
+devtools::install_github("ismayc/thesisdown")
+
+# Interactive Visualizations for Profiling R Code
+install.packages("profvis")
+
+devtools::install_github('eRum2016/eRum2016')
+library(eRum2016)
+help(package = "eRum2016")
+
+# Magick is a package for Advanced Image-Processing in R.
+# https://cloud.r-project.org/web/packages/magick/vignettes/intro.html
+install.packages("magick")
+
+# Enhance the search/help functionality in R with RDocumentation.org, and discover what R packages are most popular.
+devtools::install_github("datacamp/Rdocumentation")
+library(Rdocumentation)
+
+# editR is a basic Rmarkdown editor with instant previewing of your document. 
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("trestletech/shinyAce")
+devtools::install_github("swarm-lab/editR")
+
+

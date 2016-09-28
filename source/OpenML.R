@@ -1,0 +1,10 @@
+devtools::install_github("openml/r")
+install.packages("farff")
+install.packages("mlr")
+
+library("OpenML")
+library("mlr")
+library("farff")
+library("BBmisc")
+dsize = c(100, 500)
+taskinfo_all = listOMLTasks(number.of.instances = dsize)
