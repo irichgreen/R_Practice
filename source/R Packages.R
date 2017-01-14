@@ -382,3 +382,93 @@ install_github('gdemin/excel.link', local = F)
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(knitr, captioner, bundesligR, stringr)
 
+# install rsparkling package
+devtools::install_github("h2oai/sparkling-water", subdir = "/r/rsparkling")
+
+# install gender
+install.packages("gender")
+install.packages("genderdata", type = "source",
+                 repos = "http://packages.ropensci.org")
+library(gender)
+gender(c("Madison", "Hillary"), years = 1930, method = "ssa")
+vignette(topic = "predicting-gender", package = "gender")
+
+library(genderdata)
+data(package = "genderdata")
+
+# Dataset for Historians
+# historydata: Data Sets for Historians
+# These sample data sets are intended for historians learning R. They include population, institutional, religious, military, and prosopographical data suitable for mapping, quantitative analysis, and network analysis.
+
+install.packages("historydata")
+devtools::install_github("ropensci/historydata")
+
+library(historydata)
+help(package = historydata)
+data(catholic_dioceses)
+
+# install dayone Package
+install.packages("dataone")
+library(dataone)
+
+# install ggraph & ggforce
+devtools::install_github('thomasp85/ggforce', force = TRUE)
+devtools::install_github('thomasp85/ggraph')
+devtools::install_github("thomasp85/tweenr")
+
+#Utilizes the 'genderize.io' Application Programming Interface to predict gender from first names extracted from a text vector. The accuracy of prediction could be controlled by two parameters: counts of a first name in the database and probability of prediction.
+install.packages("genderizeR")
+
+install.packages("QRAGadget")
+devtools::install_github('paulgovan/QRAGadget')
+
+library(QRAGadget)
+QRAGadget()
+
+devtools::install_github("ropensci/elastic")
+library(elastic)
+
+#Using TensorFlow with R
+#The TensorFlow API is composed of a set of Python modules that enable constructing and executing TensorFlow graphs. The tensorflow package provides access to the complete TensorFlow API from within R. Here’s a simple example of making up some data in two dimensions and then fitting a line to it:
+
+#If you installed TensorFlow via pip with your system default version of python then you can install the tensorflow R package as follows:
+    
+devtools::install_github("rstudio/tensorflow")
+
+#If you are using a different version of python for TensorFlow, you should set the TENSORFLOW_PYTHON environment variable to the full path of the python binary before installing, for example:
+    
+Sys.setenv(TENSORFLOW_PYTHON="/usr/local/bin/python")
+devtools::install_github("rstudio/tensorflow", force = TRUE)
+
+#If you only need to customize the version of python used (for example specifing python 3 on an Ubuntu system), you can set the TENSORFLOW_PYTHON_VERSION environment variable before installation:
+    
+Sys.setenv(TENSORFLOW_PYTHON_VERSION = 3)
+devtools::install_github("rstudio/tensorflow", force = TRUE)
+
+library(tensorflow)
+sess = tf$Session()
+hello <- tf$constant('Hello, TensorFlow!')
+sess$run(hello)
+
+# RcppParallel provides a complete toolkit for creating portable, high-performance parallel algorithms without requiring direct manipulation of operating system threads. RcppParallel includes:
+#Intel TBB (v4.3), a C++ library for task parallelism with a wide variety of parallel algorithms and data structures (Windows, OS X, Linux, and Solaris x86 only).
+
+# TinyThread, a C++ library for portable use of operating system threads.
+# RVector and RMatrix wrapper classes for safe and convenient access to R data structures in a multi-threaded environment.
+# High level parallel functions (parallelFor and parallelReduce) that use Intel TBB as a back-end on systems that support it and TinyThread on other platforms.
+
+install.packages("RcppParallel")
+
+
+#The yarrr package, which contains the pirateplot, has now been updated to version 0.0.8 and is up on CRAN (after hiding in plain sight on GitHub). Let’s install the latest version (0.0.8) and go over some of the updates:
+
+install.packages("yarrr")  # Install package from CRAN
+library("yarrr") # Load the package!
+
+install.packages("survHE",
+                 repos=c("http://www.statistica.it/gianluca/R",
+                         "https://cran.rstudio.org",
+                         "https://www.math.ntnu.no/inla/R/stable"),
+                 dependencies=TRUE
+)
+

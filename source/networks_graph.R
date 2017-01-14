@@ -1,3 +1,4 @@
+install.packages("rzeit")
 library(rzeit)
 library(stringr)
 library(jsonlite)
